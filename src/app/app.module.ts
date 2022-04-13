@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { BuilderModule } from '@builder.io/angular';
+import { HomeComponent } from './routes/home/home.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { RouterLinkComponent } from './components/router-link/router-link.component';
+import { AlertRouteComponent } from './routes/alert-route/alert-route.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HomeComponent, AlertComponent, RouterLinkComponent, AlertRouteComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    BuilderModule.forRoot('1ca9a27ac5dc472da10ca7fd3ef2afd7'),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
