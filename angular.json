@@ -13,7 +13,8 @@
           "style": "css",
           "inlineStyle": true,
           "inlineTemplate": true,
-          "skipTests": true
+          "skipTests": true,
+          "flat": true
         }
       },
       "root": "",
