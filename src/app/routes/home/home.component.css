@@ -1,0 +1,9 @@
+section {
+    display: flex;
+    justify-content: center;
+}
+#missing{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}

@@ -1,23 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-alert',
+  selector: 'app-button',
   template: `
-    <p>
-      <ngb-alert [type]="type" [dismissible]="dismissable">
-        <strong>{{ alert }}</strong> {{ text }}
-      </ngb-alert>
-    </p>
+    <button class="btn btn-outline-primary" routerLink="/">Go Home</button>
   `,
   styles: [],
 })
-export class AlertComponent implements OnInit {
-  @Input() type = 'warning';
-  @Input() dismissable = true;
-  @Input() alert = 'Warning!';
-  @Input() text = `Better check yourself, you're not looking too
-  good.`;
-
+export class ButtonComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
@@ -26,8 +16,8 @@ export class AlertComponent implements OnInit {
 import { BuilderBlock } from '@builder.io/angular';
 
 BuilderBlock({
-  tag: 'ngb-alert',
-  name: 'ngb alert',
+  tag: 'ngb-button',
+  name: 'ngb button',
   image:
     'https://cdn.builder.io/api/v1/image/assets%2F1ca9a27ac5dc472da10ca7fd3ef2afd7%2F550b915d83c6498c8c0414a8ee28d1be',
   inputs: [
@@ -59,4 +49,4 @@ BuilderBlock({
       type: 'string',
     },
   ],
-})(AlertComponent);
+})(ButtonComponent);

@@ -10,9 +10,10 @@ import { HomeComponent } from './routes/home/home.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { RouterLinkComponent } from './components/router-link/router-link.component';
 import { AlertRouteComponent } from './routes/alert-route/alert-route.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, AlertComponent, RouterLinkComponent, AlertRouteComponent],
+  declarations: [AppComponent, HomeComponent, AlertComponent, RouterLinkComponent, AlertRouteComponent, ButtonComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

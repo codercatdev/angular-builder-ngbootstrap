@@ -1,5 +1,15 @@
 <builder-component
   model="page"
   (load)="load($event)"
+  (route)="route($event)"
   (error)="error($event)"
 ></builder-component>
+<section *ngIf="missing">
+  <div id="missing">
+    <div>
+      Not yet implemented in
+      <a href="https://builder.io" referrerpolicy="noreferrer">Builder.io</a>
+    </div>
+    <button class="btn btn-outline-primary" routerLink="/">Go Home</button>
+  </div>
+</section>
