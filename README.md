@@ -8,7 +8,7 @@ This repo is meant to show how to use Angular with ng-bootstrap Drag and Drop in
 | --------- | ---- |
 |Accordion| [ ] Complete |
 |Alert| [x] Complete |
-|Buttons| [ ] Complete |
+|Buttons| [x] Complete |
 |Carousel| [ ] Complete |
 |Collapse| [ ] Complete |
 |Datepicker| [ ] Complete |
