@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-button',
   template: `
-    <button class="btn btn-outline-primary" routerLink="/">Go Home</button>
+    <button
+      class="btn"
+      [ngClass]="'btn' + ' ' + type + ' ' + size"
+      [disabled]="disabled"
+    >
+      {{ text }}
+    </button>
   `,
   styles: [],
 })
 export class ButtonComponent implements OnInit {
   constructor() {}
-
+  @Input() type = 'btn-outline-primary';
+  @Input() size = '';
+  @Input() disabled = false;
+  @Input() text = 'Hello';
   ngOnInit(): void {}
 }
 
@@ -23,30 +32,41 @@ BuilderBlock({
   inputs: [
     {
       name: 'type',
-      defaultValue: 'success',
+      defaultValue: 'btn-outline-primary',
       type: 'enum',
       enum: [
-        'success',
-        'info',
-        'warning',
-        'danger',
-        'primary',
-        'secondary',
-        'light',
-        'dark',
+        'btn-outline-primary',
+        'btn-outline-secondary',
+        'btn-outline-success',
+        'btn-outline-danger',
+        'btn-outline-warning',
+        'btn-outline-info',
+        'btn-outline-light',
+        'btn-outline-dark',
+        'btn-primary',
+        'btn-secondary',
+        'btn-success',
+        'btn-danger',
+        'btn-warning',
+        'btn-info',
+        'btn-light',
+        'btn-dark',
       ],
     },
     {
-      name: 'dismissable',
-      type: 'boolean',
+      name: 'size',
+      defaultValue: 'btn-md',
+      type: 'enum',
+      enum: ['btn-md', 'btn-sm', 'btn-lg', 'btn-block'],
     },
     {
-      name: 'alert',
-      type: 'string',
+      name: 'disabled',
+      type: 'boolean',
     },
     {
       name: 'text',
       type: 'string',
+      defaultValue: 'Hello',
     },
   ],
 })(ButtonComponent);
