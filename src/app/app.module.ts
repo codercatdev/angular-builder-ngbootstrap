@@ -16,6 +16,7 @@ import { CarouselComponent } from './components/carousel.component';
 import { CollapseComponent } from './components/collapse.component';
 import { DatepickerComponent } from './components/datepicker.component';
 import { DropdownComponent } from './components/dropdown.component';
+import { ModalComponent } from './components/modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DropdownComponent } from './components/dropdown.component';
     CollapseComponent,
     DatepickerComponent,
     DropdownComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
