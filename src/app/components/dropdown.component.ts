@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-dropdown',
   template: `
-    <div ngbDropdown class="d-inline-block">
+    <div ngbDropdown class="d-inline-block" [placement]="placement">
       <button
         type="button"
         class="btn btn-outline-primary"
@@ -24,6 +24,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DropdownComponent implements OnInit {
   @Input() text = 'Toggle Dropdown';
   @Input() items: { title: string }[] | undefined;
+  @Input() placement = '-';
 
   constructor() {}
 
@@ -57,6 +58,12 @@ BuilderBlock({
       subFields: [
         { name: 'title', type: 'string', defaultValue: 'Default Action' },
       ],
+    },
+    {
+      name: 'placement',
+      defaultValue: '-',
+      type: 'enum',
+      enum: ['bottom-start', 'bottom-end', 'top-start', 'top-end'],
     },
   ],
 })(DropdownComponent);
