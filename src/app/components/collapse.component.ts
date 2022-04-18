@@ -24,7 +24,7 @@ export class CollapseComponent implements OnInit {
 import { BuilderBlock } from '@builder.io/angular';
 
 BuilderBlock({
-  tag: 'ngb-collapse',
+  tag: 'builder-ngb-collapse',
   name: 'ngb collapse',
   image:
     'https://cdn.builder.io/api/v1/image/assets%2F1ca9a27ac5dc472da10ca7fd3ef2afd7%2F550b915d83c6498c8c0414a8ee28d1be',
