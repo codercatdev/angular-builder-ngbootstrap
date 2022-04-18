@@ -12,6 +12,7 @@ import { RouterLinkComponent } from './components/router-link/router-link.compon
 import { AlertRouteComponent } from './routes/alert-route/alert-route.component';
 import { ButtonComponent } from './components/button.component';
 import { CarouselComponent } from './carousel.component';
+import { CollapseComponent } from './components/collapse.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CarouselComponent } from './carousel.component';
     AlertRouteComponent,
     ButtonComponent,
     CarouselComponent,
+    CollapseComponent,
   ],
   imports: [
     BrowserModule,
