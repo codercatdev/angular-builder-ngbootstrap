@@ -66,6 +66,8 @@ export class ModalComponent implements OnChanges {
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = 'Alex';
+    // TODO: Fix updating the state value.
+
     modalRef.result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
