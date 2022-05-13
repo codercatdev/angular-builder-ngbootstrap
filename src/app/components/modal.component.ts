@@ -1,17 +1,14 @@
-import {
-  Component,
-  Input,
-  Output,
-  OnChanges,
-  SimpleChanges,
-  AfterViewChecked,
-} from '@angular/core';
+import { Component, Input, NgZone, OnInit } from '@angular/core';
 import {
   ModalDismissReasons,
   NgbActiveModal,
   NgbModal,
 } from '@ng-bootstrap/ng-bootstrap';
-
+declare global {
+  interface Window {
+    angularComponentReference: any;
+  }
+}
 @Component({
   selector: 'ngbd-modal-content',
   template: `
@@ -40,42 +37,38 @@ import {
 })
 export class NgbdModalContent {
   @Input() name: string | undefined;
-
   constructor(public activeModal: NgbActiveModal) {}
 }
 
 @Component({
   selector: 'app-modal',
-  template: `{{ showModal }}`,
+  template: ``,
   styles: [],
 })
-export class ModalComponent implements OnChanges {
-  @Input() openModal = false;
-  public showModal = false;
+export class ModalComponent implements OnInit {
+  @Input() name: string | undefined;
+
   closeResult: string | undefined = 'not yet';
 
-  constructor(private modalService: NgbModal) {}
-  ngOnChanges(changes: SimpleChanges): void {
-    this.showModal = changes['openModal'].currentValue;
-    console.log(this.showModal);
-    if (this.showModal === true) {
-      this.open();
-    }
+  constructor(private modalService: NgbModal, private ngZone: NgZone) {}
+
+  ngOnInit() {
+    window['angularComponentReference'] = {
+      component: this,
+      zone: this.ngZone,
+      loadAngularFunction: () => this.open(),
+    };
   }
 
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
-    modalRef.componentInstance.name = 'Alex';
-    // TODO: Fix updating the state value.
-
+    modalRef.componentInstance.name = this.name;
     modalRef.result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
-        this.showModal = false;
       },
       (reason) => {
         this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        this.showModal = false;
       }
     );
   }
@@ -99,9 +92,9 @@ BuilderBlock({
     'https://cdn.builder.io/api/v1/image/assets%2F1ca9a27ac5dc472da10ca7fd3ef2afd7%2F550b915d83c6498c8c0414a8ee28d1be',
   inputs: [
     {
-      name: 'openModal',
-      type: 'boolean',
-      defaultValue: false,
+      name: 'name',
+      type: 'string',
+      defaultValue: 'Alex',
     },
   ],
 })(ModalComponent);
