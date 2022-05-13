@@ -1,6 +1,6 @@
 # GOAL
 
-This repo is meant to show how to use Angular with ng-bootstrap Drag and Drop in Builder.io
+This repo is meant to show how to use Angular with ng-bootstrap Drag and Drop in Builder.io. As well as highlight how partytown can be used in an Angular Application.
 
 ## Components
 
